@@ -1,11 +1,12 @@
-FROM debian:buster
+FROM debian:bullseye
 
 RUN apt-get update \
   && apt-get -y --quiet --force-yes upgrade curl iproute2 \
-  && apt-get install -y --no-install-recommends ca-certificates gcc g++ make build-essential git iptables-dev libavfilter-dev \
+  && apt-get install -y --no-install-recommends ca-certificates gcc g++ make build-essential git iptables libavfilter-dev \
   libevent-dev libpcap-dev libxmlrpc-core-c3-dev markdown \
   libjson-glib-dev default-libmysqlclient-dev libhiredis-dev libssl-dev \
-  libcurl4-openssl-dev libavcodec-extra gperf libspandsp-dev libwebsockets-dev\
+  libcurl4-openssl-dev libavcodec-extra gperf libspandsp-dev libwebsockets-dev \
+  libnftnl-dev libmnl-dev libiptc-dev libopus-dev pandoc \
   && cd /usr/local/src \
   && git clone https://github.com/sipwise/rtpengine.git \
   && cd rtpengine/daemon \
